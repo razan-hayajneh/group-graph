@@ -1,0 +1,20 @@
+High level description of the algorithm
+
+
+Algorithm Name: Graph Grouping:
+graph G = (V,E), where V = {1, ..., n} and |E| = m, find all groups of nodes reachable from any node within same group.
+
+Input:
+	GraphNodes[i].no_of_edges = no. of edges adjacent to node i
+	GraphNodes[i].starting = start location in Edges, where the list of edges outgoing from vertex i begins.
+	Edge[j] = the destination Node for this edge. Source is obtained from the source GraphNodes covering this node
+
+Output: 
+	group[i] = ID of the start node of the group to which node i belongs.
+	
+high level algorithm:
+keep iterating until all nodes have been added to a group: (upper loop)
+- pick a node with no group ID at random, mark its group ID as itself. if all nodes have group IDs, end.
+	- iterate over all the edges adjacent to the node, and mark their destinations with group ID, then prepare to check nodes adjacent to the destination nodes, and so on
+	- repeat until all nodes reachable have been marked with the source node's group ID. (check grouping example.pdf)
+	- if all reachable nodes marked, indicate that we will iterate one more round (upper loop)

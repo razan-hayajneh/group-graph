@@ -1,0 +1,38 @@
+# Create array of nodes and array of edges
+GraphNodes = []
+Edges = []
+
+//Initialize an integer array "group" of size "n" with all elements as "-1"
+for i = 0 to n-1
+    group[i] = -1
+// Upper loop to group nodes and Start a while loop with condition "!done".
+done = false
+while not done do
+    done = true
+    source=-1
+//pick a node with no group ID at random
+    for i = 0 to n do parallel
+        if group[i] == -1 then
+            done = false
+            source=i
+            break
+        end if
+   end loop
+    // If all nodes are already grouped, exit
+    if source ==-1
+    break
+    end if
+    // Mark the source node as its own group
+    group[source]=source
+           for j = GraphNodes[source].starting to GraphNodes[source].starting + GraphNodes[source].no_of_edges - 1 do  parallel
+            dest = Edges[j][1]
+            if  group[dest] == -1 then
+                group[dest] = source
+            end if
+                     else
+           group[source]=group[dest]
+           end ifelse
+        end loop 
+
+
+end while
